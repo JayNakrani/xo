@@ -8,13 +8,13 @@ int main(void)
 	char winner = '\0';
 	char userChoice = '\0';
 	grid pg;
-	cout << "\nPlayer_1:-->\"X\"\nPlayer_2:-->\"O\"\n";
+	cout << getTextColorString(CYAN) << "\nPlayer-1 ---->\"X\"\nPlayer-2 ----> \"O\"\n" << getTextColorString(WHITE);
 	do
 	{
 		do
 		{
 			pg.display();
-			cout << "\nPlayer-1:";
+			cout << getTextColorString(CYAN) << "\nPlayer-1:" << getTextColorString(WHITE);
 			cin >> row >> coulmn;
 			pg.take_input(row,coulmn,1);
 			pg.display();
@@ -26,7 +26,7 @@ int main(void)
 			{
 				goto gameover;  
 			}
-			cout << "\nPlayer-2:";
+			cout << getTextColorString(CYAN) << "\nPlayer-2:" << getTextColorString(WHITE);
 			cin >> row >> coulmn;
 			pg.take_input(row,coulmn,2);
 			if( (winner=pg.game_over()) == 'X' || winner == 'O')
@@ -41,16 +41,16 @@ int main(void)
 
 		end:
 		{
-			cout << "\nPlayer " << winner << " Won";
+			cout << getTextColorString(GREEN) <<  "\nPlayer " << winner << " Won" << getTextColorString(WHITE);
 		}
 		gameover:
 		{
 			if(winner == 'Z')
 			{
-				cout << "\nOops....No-one won....!!!";
+				cout << getTextColorString(RED) << "\nOops, no one won!!" << getTextColorString(WHITE);
 			}
 		}
-		cout << "\nDo u want 2 play again..???\nY/N........";
+		cout << getTextColorString(GREEN) << "\nDo u want 2 play again??\t........Y/N:" << getTextColorString(WHITE);
 		cin >> userChoice;
 	}while(toupper(userChoice) != 'N');
 }

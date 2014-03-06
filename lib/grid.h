@@ -1,8 +1,7 @@
 #ifndef _GRID_
 #define _GRID_
 
-#include<iostream>
-#include<ctype.h>
+#include "common.h"
 
 #define PLACE_HOLDER ' '
 
@@ -67,7 +66,7 @@ void grid :: take_input(int r, int c, int  pl)
 	}
 	else
 	{
-		cout << "\nWrong Entry.....!!!\nGive the correct one:";
+		cout << getTextColorString(RED) << "\nERROR:Wrong Entry!! Give the correct one:" << getTextColorString(WHITE);
 		cin >> r >> c;
 		goto start;
 	}
@@ -79,13 +78,22 @@ void grid :: take_input(int r, int c, int  pl)
  */
 void grid :: display(void)
 {
-	cout << "\n  | 1 || 2 || 3 |\n";
+	cout << getTextColorString(BLUE) << "\n    1    2    3  \n" << getTextColorString(WHITE);
 	for(int i = 0 ; i < 3 ; i++)
 	{
-		cout << i+1 << " ";
+		cout << getTextColorString(BLUE) << i+1 << " " << getTextColorString(WHITE);
 		for(int j = 0; j < 3 ; j++)
 		{
-			cout << "| " << p[i][j] << " |";
+			cout << getTextColorString(BLUE) << "| " << getTextColorString(WHITE);
+			if( p[i][j] == 'X')
+			{
+				cout << getTextColorString(YELLOW) << p[i][j] << getTextColorString(WHITE);
+			}
+			else
+			{
+				cout << getTextColorString(GREEN) << p[i][j] << getTextColorString(WHITE);
+			}
+			cout << getTextColorString(BLUE) << " |" << getTextColorString(WHITE);
 		}
 		cout << "\n";
 	}
