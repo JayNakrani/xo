@@ -4,6 +4,8 @@
 #include<iostream>
 #include<ctype.h>
 
+#define PLACE_HOLDER ' '
+
 using namespace std;
 
 class grid
@@ -27,7 +29,7 @@ grid :: grid(void)
 		p[i]=new char[3];
 		for(int j = 0 ; j < 3 ; j++)
 		{
-			p[i][j] = '\0';
+			p[i][j] = PLACE_HOLDER;
 		}
 	}
 }
@@ -70,7 +72,7 @@ void grid :: display(void)
 
 int grid :: check(int row, int coulmn)
 {
-	if(p[row-1][coulmn-1] == '\0')
+	if(p[row-1][coulmn-1] == PLACE_HOLDER)
 	{	
 		return 1;	
 	}
@@ -93,7 +95,7 @@ char grid :: game_over(void)
 	{
 		for(int j = 0; j < 3 ; j++)
 		{
-			if(p[i][j] == '\0')
+			if(p[i][j] == PLACE_HOLDER)
 			{
 				cnt++;
 			}
