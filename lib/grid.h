@@ -7,7 +7,11 @@
 #define PLACE_HOLDER ' '
 
 using namespace std;
-
+/**
+ *
+ * Tic-Tac-Toe Grid class.
+ *
+ */
 class grid
 {
 	private:
@@ -20,6 +24,11 @@ class grid
 		grid(void);
 };
 
+/**
+ * Constructor.
+ * @params: None
+ * 
+ */
 grid :: grid(void)
 {
 	p = new char *[3];
@@ -34,6 +43,14 @@ grid :: grid(void)
 	}
 }
 
+/**
+ * To Take input from user.
+ * @param: 
+ *		r: row
+ *		c: column
+ * 		pl: player number
+ * @retval:	None
+ */
 void grid :: take_input(int r, int c, int  pl)
 {
 	start:
@@ -55,7 +72,11 @@ void grid :: take_input(int r, int c, int  pl)
 		goto start;
 	}
 }
-
+/**
+ * To display the game board on the screen.
+ * @param: None
+ * @retval: None
+ */
 void grid :: display(void)
 {
 	cout << "\n  | 1 || 2 || 3 |\n";
@@ -70,6 +91,11 @@ void grid :: display(void)
 	}
 }
 
+/**
+ * Checks whether the field (r,c) is empty or not.
+ *	@param: row, column
+ *	@retval: integer. 1: if empty, 0: otherwise
+ */
 int grid :: check(int row, int coulmn)
 {
 	if(p[row-1][coulmn-1] == PLACE_HOLDER)
@@ -79,6 +105,17 @@ int grid :: check(int row, int coulmn)
 	
 	return 0;
 }
+
+/**
+ * To check for game over.
+ * @params: None
+ * @retval: character
+ 		'X' : if player 'X' is winner 
+ 		'O' : if player 'O' is winner 
+ 		'C' : if there're some empty fields in game board
+ 		'Z' : otherwise
+ */
+
 char grid :: game_over(void)
 {
 	if(p[0][0] == p[0][1] && p[0][0] == p[0][2])  {	return p[0][0];	}
