@@ -104,9 +104,9 @@ void grid :: display(void)
  *	@param: row, column
  *	@retval: integer. 1: if empty, 0: otherwise
  */
-int grid :: check(int row, int coulmn)
+int grid :: check(int row, int col)
 {
-	if(p[row-1][coulmn-1] == PLACE_HOLDER)
+	if( (row>0 && col>0 && row<4 && col<4) && p[row-1][col-1] == PLACE_HOLDER)
 	{	
 		return 1;	
 	}
